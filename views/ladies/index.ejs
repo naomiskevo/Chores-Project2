@@ -17,17 +17,14 @@
 <table id="list">
     <thead>
         <th>User</th>
-        <th>Chore</th>
-        <th>Chore Description</th>
+
         <th>Progress</th>
     </thead>
     <tbody>
         <% ladies.forEach(function(l) { %>
             <tr>
                 <td><%= l.name %></td>
-                <td><%= l.chore %></td>
-                <td><%= l.choreDescription %></td>
-                <td><%= l.progress %></td>
+                <td><button>Remind</button></td>
                 <td><a href="/ladies/<%= l._id %>">DETAILS</a></td>
             </tr>
         <% }); %>
