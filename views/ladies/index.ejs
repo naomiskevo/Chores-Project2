@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+</head>
+<header>
+    <nav>
+        <a href="/household">Your Chores</a>
+        <a href="/logout">Log Out</a>
+    </nav>
+</header>
+<body>
+<h1><%= title %></h1>
+<table id="list">
+    <thead>
+        <th>User</th>
+        <th>Chore</th>
+        <th>Chore Description</th>
+        <th>Progress</th>
+    </thead>
+    <tbody>
+        <% ladies.forEach(function(l) { %>
+            <tr>
+                <td><%= l.name %></td>
+                <td><%= l.chore %></td>
+                <td><%= l.choreDescription %></td>
+                <td><%= l.progress %></td>
+                <td><a href="/ladies/<%= l._id %>">DETAILS</a></td>
+            </tr>
+        <% }); %>
+    </tbody>
+    </table>
+</body>
+</html>

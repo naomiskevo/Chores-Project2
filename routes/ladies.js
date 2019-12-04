@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+var ladiesCtrl = require('../controllers/ladies');
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', ladiesCtrl.index);
 
 module.exports = router;

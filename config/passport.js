@@ -8,7 +8,7 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
-    Lady.findOne({ 'googleId': profile.id }, function(err, student) {
+    Lady.findOne({ 'googleId': profile.id }, function(err, lady) {
       if (err) return cb(err);
       if (lady) {
         return cb(null, lady);
