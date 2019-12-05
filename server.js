@@ -13,9 +13,10 @@ var app = express();
 require('./config/database');
 require('./config/passport');
 
+
 var indexRouter = require('./routes/index');
 var ladiesRouter = require('./routes/ladies');
-
+var twilioRouter =require('./routes/twilio');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -36,6 +37,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/ladies', ladiesRouter);
+app.use('/twilio', twilioRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

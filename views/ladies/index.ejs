@@ -7,27 +7,27 @@
     <title><%= title %></title>
 </head>
 <header>
-    <nav>
-        <a href="/household">Your Chores</a>
         <a href="/logout">Log Out</a>
-    </nav>
 </header>
 <body>
 <h1><%= title %></h1>
 <table id="list">
     <thead>
-        <th>User</th>
-
-        <th>Progress</th>
+    <% ladies.forEach(function(l) { %>
+        <th><a href="/ladies/<%= l._id %>"><%= l.name %></a></th>
     </thead>
     <tbody>
-        <% ladies.forEach(function(l) { %>
-            <tr>
-                <td><%= l.name %></td>
-                <td><button>Remind</button></td>
-                <td><a href="/ladies/<%= l._id %>">DETAILS</a></td>
-            </tr>
-        <% }); %>
+        <tr>
+            <td>Wash Dishes</td>
+            <td><%= l.progress %></td>
+            <td>
+                <form action="/twilio" method="POST">
+                    <input type=”text” name="number" id=”number” placeholder="Enter Mobile Number">
+                    <button type=”button” value="Send Text" id=”button” class="button btn-primary">Remind</button>
+                </form>
+            </td>
+        </tr>
+    <% }); %>
     </tbody>
     </table>
 </body>

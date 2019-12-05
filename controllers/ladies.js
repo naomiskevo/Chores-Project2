@@ -2,7 +2,18 @@ const Lady = require('../models/lady');
 
 module.exports = {
     index,
-    create
+    create,
+    show
+
+}
+
+function show (req, res) {
+    Lady.findById(req.params.id, function(err, lady){
+        res.render('ladies/show', {
+            title: "User's Chores",
+            lady,
+        });
+    })
 }
 
 function create(req, res){
@@ -16,6 +27,6 @@ function create(req, res){
 
 function index(req, res){
     Lady.find({}, (err, ladies) => {
-        res.render('ladies/index', {title: 'Household Chores', ladies});
+        res.render('ladies/index', {title: 'Ladies of 8605', ladies});
     });
 }

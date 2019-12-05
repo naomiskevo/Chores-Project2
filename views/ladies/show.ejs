@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+</head>
+<nav>
+    <a href="/logout">Log Out</a>
+    <a href="/ladies">Household</a>
+</nav>
+<body>
+    <h1><%= title %></h1>
+    <% if(lady.chores.length){ %>
+    <ul>
+        <% lady.chores.forEach(function(c){ %>
+            <li><%= c.chore %> - <%= c.progress %>
+                    <button>Edit</button>
+            </li>       
+        <% }) %>
+    </ul>
+    <% } else { %> 
+        <h3>No Chores Yet</h3>
+    <% } %>
+<hr>
+<form id="add-chore-form" method="POST" action="/ladies/<%= lady._id %>/chores">
+    <label>Chore:</label>
+    <input type="text" name="chore">
+    <label>Progress</label>
+    <select name="pregress">
+        <option value="Done">Done</option>
+        <option value="Will do tonight">Will do tonight</option>
+        <option value="Will do by EOW">Will do by EOW</option>
+    </select>
+    <input type="submit" value="Add Chore">
+</form>  
+</body>
+</html>
