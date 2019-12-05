@@ -8,7 +8,6 @@ const choreSchema = new Schema({
     progress: {
         type: String,
         enum: ["Done", "Will do tonight", "Will do by EOW"],
-        default: "Will do by EOW"
     } 
 });
 
