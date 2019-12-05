@@ -23,10 +23,13 @@ function create(req, res){
             res.redirect(`/ladies/${lady._id}`)
         })
     })
+
 }
 
 function index(req, res){
     Lady.find({}, (err, ladies) => {
-        res.render('ladies/index', {title: 'Ladies of 8605', ladies});
+        console.log(ladies)
+        res.render('ladies/index', {title: 'Ladies of 8605', ladies, user:req.user});
+
     });
 }

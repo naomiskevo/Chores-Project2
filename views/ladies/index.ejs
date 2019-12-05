@@ -11,23 +11,15 @@
 </header>
 <body>
 <h1><%= title %></h1>
-<table id="list">
-    <thead>
-    <% ladies.forEach(function(l) { %>
-        <th><a href="/ladies/<%= l._id %>"><%= l.name %></a></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td></td>
-            <td>
-                <form action="/twilio" method="POST">
-                    <input type=”text” name="number" id=”number” placeholder="Enter Mobile Number">
-                    <button type=”button” value="Send Text" id=”button” class="button btn-primary">Remind</button>
-                </form>
-            </td>
-        </tr>
-    <% }); %>
-    </tbody>
-    </table>
+<% ladies.forEach(function(l) { %>
+    <a href="/ladies/<%= l._id %>"><%= l.name %></a>
+    <ul>
+        <% l.chores.forEach(function(c){ %>
+            <li><%=c.chore%> --- <%=c.progress%></li>
+            <% })%>
+    </ul>
+    
+ <% }); %>
+
 </body>
 </html>

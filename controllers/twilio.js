@@ -12,7 +12,7 @@ function sms(req, res){
        })
       .then(message => console.log(message.sid))
       .done();
-      res.redirect('/ladies');
+        res.redirect('/ladies')
 }
 
 module.exports = {
