@@ -11,10 +11,13 @@ The app will help minimize the awkward face to face conversations about who is d
 I used JavaScript, HTML, and CSS, Node.js, and Express
 
 ## User Stories
-* AAU Should be able to login and view his/her household chores
-* AAU should be able to add, update, and delete their chores when necessary.
-* AAU should be able to text people to remind them about their chores
+* AAU Should be able to login and view his/her household chores.
+* AAU should be able to add, update, and delete their, and no one else's,chores when necessary.
+* AAU should be able to text people to remind them about their chores.
 
 
 ## Stretch Goals
 * CSS for sure needs work
+* Authorization needs to be put in place
+* Remind button that is already linked to phone number, so you dont have to input
+

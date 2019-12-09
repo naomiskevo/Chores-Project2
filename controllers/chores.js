@@ -6,6 +6,7 @@ module.exports = {
     updateChore,
     update
 }
+
 function update(req, res) {
     Chore.findById(req.params.id, function (err, chore) {
          res.render('ladies/update', {
@@ -15,8 +16,10 @@ function update(req, res) {
          })
      })
  }
+
  function updateChore(req, res) {
     Chore.findById(req.params.id, function (err, chores) {
+        console.log(req.params.id)
          chores.chore = req.body.chore
          chores.progress = req.body.progress
          chores.save(function (err) {
