@@ -15,6 +15,7 @@ require('./config/passport');
 
 
 var indexRouter = require('./routes/index');
+var choresRouter = require('./routes/chores');
 var ladiesRouter = require('./routes/ladies');
 var twilioRouter =require('./routes/twilio');
 // view engine setup
@@ -37,6 +38,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/ladies', ladiesRouter);
+app.use('/', choresRouter);
 app.use('/twilio', twilioRouter);
 
 // catch 404 and forward to error handler

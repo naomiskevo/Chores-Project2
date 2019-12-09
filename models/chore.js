@@ -11,11 +11,4 @@ const choreSchema = new Schema({
     } 
 });
 
-const ladySchema = new Schema({
-    name: String,
-    email: String,
-    chores: [choreSchema],
-    googleId: String
-});
-
-module.exports = mongoose.model('Lady', ladySchema);
+module.exports = mongoose.model('Chore', choreSchema);

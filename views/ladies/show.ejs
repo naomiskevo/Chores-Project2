@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <title><%= title %></title>
 </head>
 <nav>
@@ -16,25 +19,30 @@
     <ul>
         <% lady.chores.forEach(function(c){ %>
             <li><%= c.chore %> - <%= c.progress %>
-                    <button>Edit</button>
+            <a href="/chores/<%= c.id %>/edit">
+                <button>Edit</button>
+            </a>
+                <form id="deleteChore" action="/chores/<%= c._id%>?_method=DELETE" method="POST">
+                <button>X</button>
+                </form>
             </li>       
         <% }) %>
     </ul>
-    <% } else { %> 
-        <h3>No Chores Yet</h3>
-    <% } %>
-<hr>
-<form id="add-chore-form" method="POST" action="/ladies/<%= lady._id %>/chores">
-    <label>Chore:</label>
-    <input type="text" name="chore">
-    <label>Progress</label>
-    <select name="progress">
-        <option value="Done">Done</option>
-        <option value="Will do tonight">Will do tonight</option>
-        <option value="Will do by EOW">Will do by EOW</option>
-    </select>
-    <input type="submit" value="Add Chore">
-</form>
+        <% } else { %> 
+            <h3>No Chores Yet</h3>
+     <% } %>
+    <hr>
+    <form id="add-chore-form" method="POST" action="/ladies/<%= lady._id %>/chores">
+        <label>Chore:</label>
+        <input type="text" name="chore">
+        <label>Progress</label>
+        <select name="progress">
+            <option value="Done">Done</option>
+            <option value="Will do tonight">Will do tonight</option>
+            <option value="Will do by EOW">Will do by EOW</option>
+        </select>
+        <input type="submit" value="Add Chore">
+    </form>
 <form action="/twilio" method="POST">
     <input type=”text” name="number" id=”number” placeholder="Enter Mobile Number">
     <button type=”button” value="Send Text" id=”button” class="button btn-primary">Remind</button>
