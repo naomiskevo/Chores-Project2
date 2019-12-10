@@ -19,9 +19,7 @@
     <ul>
         <% lady.chores.forEach(function(c){ %>
             <li><%= c.chore %> - <%= c.progress %>
-            <a href="/chores/<%= c.id %>/edit">
-                <button>Edit</button>
-            </a>
+            <a href="/chores/<%= c.id %>/edit">Edit</a>
                 <form id="deleteChore" action="/chores/<%= c._id%>?_method=DELETE" method="POST">
                 <button>X</button>
                 </form>

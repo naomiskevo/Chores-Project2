@@ -9,6 +9,7 @@ module.exports = {
 
 function update(req, res) {
     Chore.findById(req.params.id, function (err, chore) {
+        console.log()
          res.render('ladies/update', {
              user: req.user,
              chore,
@@ -34,7 +35,9 @@ function update(req, res) {
  }
 
 function deleteChore(req,res){
-    Chore.findByIdAndDelete(req.params._id, function(err, chore){
+    Chore.findByIdAndDelete(req.params.id, function(err, chore){
+        console.log(chore)
+        chore.remove(),
         res.redirect('/ladies')
     })
 }

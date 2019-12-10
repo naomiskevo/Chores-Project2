@@ -21,7 +21,7 @@ function create(req, res) {
             }
             console.log(saved)
         Lady.findById(req.params.id, function (err, lady) {
-            console.log(saved._id)
+            // console.log(saved._id)
             console.log(lady)
             lady.chores.push(saved)
             // lady.chores = [saved, ...lady.chores] this is a way to make new array with a new item in the front without calling push()
